@@ -53,3 +53,16 @@ export async function PUT(request: Request,{params}: Segments ) {
         return NextResponse.json(error, { status: 400 })
     }
 }
+
+export async function POST(request: Request) {
+    
+    try {
+        const {description} = await request.json(); 
+        const todoCreated = await prisma.todo.create({ data:{description} });
+        return NextResponse.json(todoCreated);
+      
+    } catch (error) {
+        return NextResponse.json(error, { status: 400 })
+    }
+    
+}
