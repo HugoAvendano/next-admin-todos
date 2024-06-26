@@ -15,11 +15,11 @@ export const NewTodo = () => {
     
     const handleSubmit = async (event : FormEvent) => {
         event.preventDefault();
-        //const todoCreated = await apiTodos.createTodo(todoDescription);        
-        //router.refresh();
+        const todoCreated = await apiTodos.createTodo(todoDescription);        
+        router.refresh();
 
         // utilizando server actions
-        await addTodo(todoDescription);        
+        //await addTodo(todoDescription);        
         setTodoDescription('');
     }
 
